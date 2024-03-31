@@ -33,7 +33,7 @@ const NavBar = () => {
   });
 
   return (
-    <div className="flex justify-end items-center bg-[#81C408] h-[90px] space-x-2 pr-1 w-[1200px] fixed z-50">
+    <div className="flex justify-end items-center bg-[#81C408] h-[90px] space-x-2 pr-1 w-[1200px] fixed z-30">
       {/* Logo */}
       <div
         onClick={() => {

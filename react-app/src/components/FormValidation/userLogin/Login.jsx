@@ -40,7 +40,7 @@ const Login = () => {
       onSubmit={handleFormSubmit}
     >
       {({ handleSubmit }) => (
-        <div className="bg-[#c5c4c4] h-screen w-screen flex justify-center items-center absolute z-30">
+        <div className="bg-[#c5c4c4] h-screen w-screen flex justify-center items-center absolute z-50">
           <div className="flex w-[80%] h-[550px] justify-center items-center drop-shadow-[0_35px_35px_rgba(0,0,0,0.8)]">
             <div className="h-[550px] w-[550px]">
               <img

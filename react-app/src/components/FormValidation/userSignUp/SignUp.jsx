@@ -69,7 +69,7 @@ const SignUp = () => {
   }, [navigate, user]);
 
   return (
-    <div className="bg-[#c5c4c4] w-screen h-screen flex flex-col justify-center items-center z-30 absolute">
+    <div className="bg-[#c5c4c4] w-screen h-screen flex flex-col justify-center items-center z-50 absolute">
       <Formik
         initialValues={{
           firstName: "",
