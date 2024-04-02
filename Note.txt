@@ -9,6 +9,7 @@ cd react-app => {
     npm install firebase
     npm install react-router-dom
     npm i react-typed
+    npm i uuid
 }
 
 TO BEGIN:
