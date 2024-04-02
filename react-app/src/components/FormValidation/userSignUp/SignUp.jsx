@@ -27,7 +27,7 @@ const SignUp = () => {
         return;
       }
 
-      await insertUserData(values); // Call function to insert data into database
+      insertUserData(values); // Call function to insert data into database
       setIsSuccess(true); // Set isSuccess state to true after successful -- create account
       setTimeout(() => {
         navigate("/login");
