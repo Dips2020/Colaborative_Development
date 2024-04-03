@@ -69,7 +69,7 @@ const SignUp = () => {
   }, [navigate, user]);
 
   return (
-    <div className="bg-[#c5c4c4] w-screen h-screen flex flex-col justify-center items-center z-50 absolute">
+    <div className="bg-black bg-opacity-[70%] w-screen h-screen flex flex-col justify-center items-center z-50 absolute">
       <Formik
         initialValues={{
           firstName: "",
@@ -81,14 +81,14 @@ const SignUp = () => {
         onSubmit={handleFormSubmit}
       >
         {({ handleSubmit }) => (
-          <div className="flex w-[80%] justify-center items-center drop-shadow-[0_35px_35px_rgba(0,0,0,0.8)]">
+          <div className="flex w-[1200px] justify-center items-center shadow-md">
             <form
               autoComplete="off"
               onSubmit={(event) => {
                 event.preventDefault();
                 handleSubmit();
               }}
-              className="bg-white h-[550px] w-[550px] flex flex-col justify-center items-center space-y-5 rounded-l relative"
+              className="bg-white h-[550px] w-[50%] flex flex-col justify-center items-center space-y-5 rounded-l relative"
             >
               {isSuccess && (
                 <div className="absolute bottom-0 left-0 right-0 bg-green-500 text-white text-[12px] font-bold py-[4px] text-center">
@@ -153,7 +153,7 @@ const SignUp = () => {
                 </div>
               </div>
             </form>
-            <div className="h-[550px] w-[550px]">
+            <div className="h-[550px] w-[50%]">
               <img
                 src={firstImg}
                 alt="First img"

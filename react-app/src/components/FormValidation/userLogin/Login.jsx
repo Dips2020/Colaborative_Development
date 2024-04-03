@@ -1,14 +1,45 @@
 import { Formik } from "formik";
 import TextField from "../userSignUp/TextField";
 import firstImg from "../../../assets/firstImg.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../GoogleAuth/UserGoogleAuthentication";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { handleFormSubmit } = useContext(UserContext); // Destructure setUser to update user state
+  const { handleFormSubmit, googleSignIn, user } = useContext(UserContext); // Destructure setUser to update user state
+  const [isGoogleLoginSuccess, setIsGoogleLoginSuccess] = useState(false);
+
   const navigate = useNavigate(); // Import useNavigate
+
+  // handle google sign in
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+      setIsGoogleLoginSuccess(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    // console.log("isGoogleLoginSuccess changed:", isGoogleLoginSuccess);
+    if (user) {
+      const timeoutId = setTimeout(() => {
+        setIsGoogleLoginSuccess(
+          <div className="absolute bottom-0 left-0 right-0 bg-green-500 text-white text-[12px] font-bold py-[4px] text-center">
+            Logged in with Google successfully.
+            {console.log("Google sign-in successful.")}
+            {console.log("Navigating to homepage after 5 seconds...")}
+          </div>
+        );
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      }, 2000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [navigate, user]);
 
   const handleManualLogin = async (values) => {
     try {
@@ -29,9 +60,9 @@ const Login = () => {
       onSubmit={handleManualLogin}
     >
       {({ handleSubmit }) => (
-        <div className="bg-[#c5c4c4] h-screen w-screen flex justify-center items-center absolute z-50">
-          <div className="flex w-[80%] h-[550px] justify-center items-center drop-shadow-[0_35px_35px_rgba(0,0,0,0.8)]">
-            <div className="h-[550px] w-[550px]">
+        <div className="bg-black bg-opacity-[70%] h-screen w-screen flex justify-center items-center absolute z-50">
+          <div className="flex w-[1200px] h-[550px] justify-center items-center shadow-md">
+            <div className="h-[550px] w-[50%]">
               <img
                 src={firstImg}
                 alt="First img"
@@ -41,36 +72,57 @@ const Login = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="bg-white h-[550px] w-[550px] flex flex-col justify-center items-center space-y-5 rounded-r-lg"
+              className="bg-white h-[550px] w-[50%] flex flex-col justify-center items-center space-y-2 rounded-r-lg"
             >
-              <div>
+              <div className="h-[10%] w-full text-center">
                 <h1 className="font-bold text-2xl text-black">
                   Welcome to Login Page !!
                 </h1>
               </div>
-              <div className="h-[300px] w-full flex flex-col justify-center items-center space-y-6">
-                <div>
-                  <TextField name="email" label="Email" />
+              <div className="h-[85%] w-full flex flex-col justify-center items-center space-y-6">
+                <div className="h-[20%] w-full flex justify-center items-center">
+                  <div>
+                    <TextField name="email" label="Email" />
+                  </div>
+                  <div>
+                    <TextField
+                      name="password"
+                      label="Password"
+                      type="password"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <TextField name="password" label="Password" type="password" />
+                <div className="h-[20%] w-full flex justify-center items-center space-x-6">
+                  <button
+                    type="submit"
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[220px] h-[50px]"
+                  >
+                    Login
+                  </button>
+                  <br />
+                  <h1 className="font-bold text-[18px]">OR</h1>
+                  <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-[10px] rounded-lg transition duration-300 w-[220px] h-[50px] flex justify-evenly items-center"
+                  >
+                    <span className="text-2xl bg-white rounded-sm">
+                      <FcGoogle />
+                    </span>
+                    Continue with Google
+                  </button>
+                </div>
+                <div className="h-[20%] w-full flex justify-center items-center space-x-2">
+                  <h2> Account not registered? </h2>
+                  <Link to="/signUp">
+                    <button className="hover:cursor text-blue-700 font-bold">
+                      Create New
+                    </button>
+                  </Link>
                 </div>
               </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[200px] h-[50px]"
-              >
-                Login
-              </button>
-              <button
-                type="button"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-[10px]  rounded-lg transition duration-300 w-[200px] h-[50px] flex justify-between items-center"
-              >
-                <span className="text-2xl bg-white rounded-sm">
-                  <FcGoogle />
-                </span>
-                Continue with Google
-              </button>
+              {/* //* Displaying google sign in success message */}
+              {isGoogleLoginSuccess}
             </form>
           </div>
         </div>
