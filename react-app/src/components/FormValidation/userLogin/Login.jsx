@@ -8,7 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { handleFormSubmit, googleSignIn, user } = useContext(UserContext); // Destructure setUser to update user state
+  const {
+    handleFormSubmit,
+    googleSignIn,
+    user,
+    invalidEmailMsg,
+    invalidPasswordMsg,
+  } = useContext(UserContext); // Destructure setUser to update user state
   const [isGoogleLoginSuccess, setIsGoogleLoginSuccess] = useState(false);
 
   const navigate = useNavigate(); // Import useNavigate
@@ -72,7 +78,7 @@ const Login = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="bg-white h-[550px] w-[50%] flex flex-col justify-center items-center space-y-2 rounded-r-lg"
+              className="bg-white h-[550px] w-[50%] flex flex-col justify-center items-center space-y-2 rounded-r-lg relative"
             >
               <div className="h-[10%] w-full text-center">
                 <h1 className="font-bold text-2xl text-black">
@@ -80,9 +86,14 @@ const Login = () => {
                 </h1>
               </div>
               <div className="h-[85%] w-full flex flex-col justify-center items-center space-y-6">
-                <div className="h-[20%] w-full flex justify-center items-center">
+                <div className="h-[30%] w-full flex justify-center items-center relative">
                   <div>
                     <TextField name="email" label="Email" />
+                    {invalidEmailMsg ? (
+                      <div className="absolute bottom-5 left-[40px] font-semibold text-[16px] text-red-500">
+                        Invalid Email !
+                      </div>
+                    ) : null}
                   </div>
                   <div>
                     <TextField
@@ -91,6 +102,11 @@ const Login = () => {
                       type="password"
                     />
                   </div>
+                  {invalidPasswordMsg ? (
+                    <div className="absolute bottom-5 right-[40px] font-semibold text-[16px] text-red-500">
+                      Invalid Password !
+                    </div>
+                  ) : null}
                 </div>
                 <div className="h-[20%] w-full flex justify-center items-center space-x-6">
                   <button
