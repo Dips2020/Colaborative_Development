@@ -13,6 +13,7 @@ import { getUserByEmail } from "../../DatabaseOperation/DatabaseOperation";
 const SignUp = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isGoogleLoginSuccess, setIsGoogleLoginSuccess] = useState(false);
+  const [emailExists, setEmailExists] = useState(false);
   const navigate = useNavigate();
 
   const handleFormSubmit = async (values, { resetForm }) => {
@@ -23,6 +24,12 @@ const SignUp = () => {
       if (userExists) {
         console.error(
           "User with this email address already exists.\nPlease try with different email address."
+        );
+        setEmailExists(
+          <div className="absolute bottom-0 left-0 right-0 bg-red-500 text-white text-[12px] font-bold py-[4px] text-center z-10">
+            User with this email address already exists. Please try with
+            different email address.
+          </div>
         );
         return;
       }
@@ -54,7 +61,7 @@ const SignUp = () => {
     if (user) {
       const timeoutId = setTimeout(() => {
         setIsGoogleLoginSuccess(
-          <div className="absolute bottom-0 left-0 right-0 bg-green-500 text-white text-[12px] font-bold py-[4px] text-center">
+          <div className="absolute bottom-0 left-0 right-0 bg-green-500 text-white text-[12px] font-bold py-[4px] text-center z-20">
             Logged in with Google successfully.
             {console.log("Google sign-in successful.")}
             {console.log("Navigating to homepage after 5 seconds...")}
@@ -91,13 +98,14 @@ const SignUp = () => {
               className="bg-white h-[550px] w-[50%] flex flex-col justify-center items-center space-y-5 rounded-l relative"
             >
               {isSuccess && (
-                <div className="absolute bottom-0 left-0 right-0 bg-green-500 text-white text-[12px] font-bold py-[4px] text-center">
+                <div className="absolute bottom-0 left-0 right-0 bg-green-500 text-white text-[12px] font-bold py-[4px] text-center z-20">
                   Account created successfully. Please wait...
                 </div>
               )}
 
               {/* //* Displaying google sign in success message */}
               {isGoogleLoginSuccess}
+              {emailExists}
 
               <div>
                 <h1 className="w-full font-bold text-2xl text-black">
