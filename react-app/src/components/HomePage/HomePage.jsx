@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import FirstContainer from "./pages/FirstContainer";
 import Products from "./ProductPage/Products";
 

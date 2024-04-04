@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { set, database, ref, get } from "../config/DatabaseConnection"; // Importing necessary Firebase functions
 
 //? ------------------------ inserting-part

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { createContext } from "react";
 import { useEffect, useState } from "react"; // useEffect and useState for checking user authenticated or not
 import {
