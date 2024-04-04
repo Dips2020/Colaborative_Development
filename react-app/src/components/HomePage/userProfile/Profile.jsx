@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 const Profile = () => {
   return <div className="h-[200px] w-full bg-red-200 mt-[92px]">Profile</div>;
 };

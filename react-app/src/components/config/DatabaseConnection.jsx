@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, update, onValue, get } from "firebase/database";
 import { getAuth } from "firebase/auth"; // adding google authentication
