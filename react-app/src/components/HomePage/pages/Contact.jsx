@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { RxContainer } from "react-icons/rx";
 import TextField from "../../FormValidation/userSignUp/TextField";
 import { Formik } from "formik";
 
@@ -18,7 +17,6 @@ const Contact = () => {
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
-          refererpolicy="no-referrer-when-downgrade"
         ></iframe>
         <div className="flex flex-col w-full justify-center items-center">
           <div className="w-full flex flex-col justify-center items-center h-auto">
@@ -27,9 +25,9 @@ const Contact = () => {
               method="post"
               className="w-full flex flex-col justify-center items-center mb-4"
             >
-            <span className="h-[60px] w-[90%] text-2xl font-bold flex justify-center items-center">
-              GET IN TOUCH
-            </span>
+              <span className="h-[60px] w-[90%] text-2xl font-bold flex justify-center items-center">
+                GET IN TOUCH
+              </span>
               <div>
                 <TextField name="firstName" label="First Name" required />
               </div>
@@ -49,11 +47,11 @@ const Contact = () => {
                 className="border-[2px] p-2 border-gray-400 hover:border-blue-700 outline-none rounded-lg"
               ></textarea>
               <div>
-              <input
-                type="submit"
-                value="send"
-                className="bg-blue-500 mt-4 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[220px] h-[50px]"
-              />
+                <input
+                  type="submit"
+                  value="send"
+                  className="bg-blue-500 mt-4 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[220px] h-[50px]"
+                />
               </div>
             </form>
           </div>
