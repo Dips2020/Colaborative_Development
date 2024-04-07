@@ -18,40 +18,51 @@ const Contact = () => {
           allowFullScreen=""
           loading="lazy"
         ></iframe>
-        <div className="flex flex-col w-full justify-center items-center">
+        <div className="flex flex-col w-full justify-center items-center h-auto">
           <div className="w-full flex flex-col justify-center items-center h-auto">
             <form
-              action="https://formspree.io/f/mgegnobg"
+              action="https://formspree.io/f/xleqodqj"
               method="post"
               className="w-full flex flex-col justify-center items-center mb-4"
             >
               <span className="h-[60px] w-[90%] text-2xl font-bold flex justify-center items-center">
                 GET IN TOUCH
               </span>
-              <div>
-                <TextField name="firstName" label="First Name" required />
-              </div>
-              <div>
-                <TextField name="lastName" label="Last Name" required />
-              </div>
-              <div>
-                <TextField name="email" type="email" label="Email" required />
-              </div>
-              <textarea
-                name="Message"
-                cols="40"
-                rows="10"
-                placeholder="Send a Message"
-                autoComplete="off"
-                required
-                className="border-[2px] p-2 border-gray-400 hover:border-blue-700 outline-none rounded-lg"
-              ></textarea>
-              <div>
-                <input
-                  type="submit"
-                  value="send"
-                  className="bg-blue-500 mt-4 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[220px] h-[50px]"
-                />
+              <div className="h-auto w-[90%] flex justify-center items-center">
+                <div className="w-[30%] h-[400px] flex flex-col justify-center items-center">
+                  <div>
+                    <TextField name="firstName" label="First Name" required />
+                  </div>
+                  <div>
+                    <TextField name="lastName" label="Last Name" required />
+                  </div>
+                  <div>
+                    <TextField
+                      name="email"
+                      type="email"
+                      label="Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="w-[50%] h-[400px] flex flex-col justify-center items-center">
+                  <textarea
+                    name="Message"
+                    cols="60"
+                    rows="9"
+                    placeholder="Send a Message ..."
+                    autoComplete="off"
+                    required
+                    className="border-[2px] p-2 border-gray-400 hover:border-blue-700 outline-none rounded-lg"
+                  ></textarea>
+                </div>
+                <div className="w-[20%] h-[400px] flex justify-center items-center">
+                  <input
+                    type="submit"
+                    value="send"
+                    className="bg-blue-500 mt-2 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[200px] h-[50px] cursor-pointer"
+                  />
+                </div>
               </div>
             </form>
           </div>
