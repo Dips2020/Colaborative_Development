@@ -5,9 +5,9 @@ import Products from "./ProductPage/Products";
 
 const HomePage = () => {
   return (
-    <div className="w-[1200px] bg-[#FBF9F4] relative flex flex-col items-center">
+    <div className="w-[1200px] bg-[#036016] relative flex flex-col items-center">
       {/* ======================================================================================= */}
-      <div className="w-[1200px] bg-[#FBF9F4] relative flex flex-col items-center">
+      <div className="w-[1200px] bg-[#036016] relative flex flex-col items-center">
         <FirstContainer />
       </div>
       {/* ======================================================================================= */}
