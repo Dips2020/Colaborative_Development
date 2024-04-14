@@ -6,7 +6,7 @@ import { Formik } from "formik";
 const Contact = () => {
   return (
     <Formik initialValues={{ email: "", password: "" }}>
-      <div className="bg-white w-[1200px] h-auto mt-[92px] flex flex-col justify-center items-center">
+      <div className="bg-white w-[1200px] h-auto mt-[92px] flex flex-col justify-center items-center rounded-t-lg">
         <span className="h-[60px] w-full text-2xl font-bold flex justify-center items-center">
           Feel free to Contact Us
         </span>
@@ -21,15 +21,15 @@ const Contact = () => {
         <div className="flex flex-col w-full justify-center items-center h-auto">
           <div className="w-full flex flex-col justify-center items-center h-auto">
             <form
-              action="https://formspree.io/f/xleqodqj"
+              action="https://formspree.io/f/mgegnobg"
               method="post"
-              className="w-full flex flex-col justify-center items-center mb-4"
+              className="w-full flex flex-col justify-center items-center mb-4 h-auto"
             >
               <span className="h-[60px] w-[90%] text-2xl font-bold flex justify-center items-center">
                 GET IN TOUCH
               </span>
-              <div className="h-auto w-[90%] flex justify-center items-center">
-                <div className="w-[30%] h-[400px] flex flex-col justify-center items-center">
+              <div className="h-[400px] w-[90%] flex justify-center items-center bg-white rounded-lg">
+                <div className="w-[25%] h-[300px] flex flex-col justify-center items-center">
                   <div>
                     <TextField name="firstName" label="First Name" required />
                   </div>
@@ -45,7 +45,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                <div className="w-[50%] h-[400px] flex flex-col justify-center items-center">
+                <div className="w-[50%] h-[300px] flex flex-col justify-center items-center">
                   <textarea
                     name="Message"
                     cols="60"
@@ -56,11 +56,11 @@ const Contact = () => {
                     className="border-[2px] p-2 border-gray-400 hover:border-blue-700 outline-none rounded-lg"
                   ></textarea>
                 </div>
-                <div className="w-[20%] h-[400px] flex justify-center items-center">
+                <div className="w-[25%] h-[300px] flex justify-center items-center mr-[4px]">
                   <input
                     type="submit"
-                    value="send"
-                    className="bg-blue-500 mt-2 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[200px] h-[50px] cursor-pointer"
+                    value="Send Message"
+                    className="bg-[#069E2D] mt-2 hover:bg-[#04773B] text-[18px] text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[200px] h-[50px] cursor-pointer"
                   />
                 </div>
               </div>
