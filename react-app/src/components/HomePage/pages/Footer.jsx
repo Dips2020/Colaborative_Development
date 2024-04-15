@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 const Footer = () => {
   return (
     <div className="bg-black w-[1200px] h-[150px]">
