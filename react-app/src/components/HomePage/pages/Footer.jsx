@@ -2,8 +2,23 @@
 import React from "react";
 const Footer = () => {
   return (
-    <div className="bg-black w-[1200px] h-[150px]">
-      <h1 className="text-white text-3xl text-center">Footer</h1>
+    <div className="contact short">
+    
+      <div>
+
+        <div>
+          <h3>ready to get start?</h3>
+          <h3>Talk to us today</h3>
+        </div>
+
+        <div>
+          <navlink>
+            <button>Get Start</button>
+          </navlink>
+        </div>
+
+        
+      </div>
     </div>
   );
 };
