@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // eslint-disable-next-line no-unused-vars
+=======
+/* eslint-disable no-unused-vars */
+>>>>>>> 2de7597bd618d2b172d6cc6d55cb037bc9ff6428
 import React from 'react';
 
 const Footer = () => {
@@ -36,5 +40,6 @@ const Footer = () => {
     </footer>
   );
 };
+
 
 export default Footer;
