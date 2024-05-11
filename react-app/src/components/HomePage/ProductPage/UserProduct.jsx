@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { useState, useEffect } from "react";
 import {
   imgDB,
@@ -47,8 +49,6 @@ const UserProduct = () => {
             if (user.uid) {
               insertUserProduct(
                 user.uid,
-                user.email,
-                user.displayName,
                 url,
                 productName,
                 productPrice,
@@ -171,7 +171,7 @@ const UserProduct = () => {
             </div>
           ))}
           {/* ------------------------- */}
-          <div className="flex flex-col space-y-2 justify-evenly items-center w-[280px] h-auto rounded-lg bg-[#cfc9b9] pt-2 pb-2 mb-2">
+          <div className="flex flex-col space-y-2 justify-evenly items-center w-[280px] h-auto rounded-lg bg-[#d1a6a6] pt-2 pb-2 mb-2">
             <label
               htmlFor="file-upload"
               className="bg-gray-200 h-[200px] w-[200px] flex justify-center items-center cursor-pointer rounded-lg"
