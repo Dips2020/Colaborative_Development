@@ -3,6 +3,7 @@ import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaMinus } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const AddToCart = () => {
   return (
@@ -126,9 +127,9 @@ const AddToCart = () => {
           </div>
         </div>
         <div className="text-center mt-8">
-          <a href="#" className="text-gray-500 hover:underline">
+          <Link to="/" className="text-gray-500 hover:underline">
             &larr; Back to shop
-          </a>
+          </Link>
         </div>
       </div>
     </div>
