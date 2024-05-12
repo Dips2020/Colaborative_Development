@@ -120,7 +120,7 @@ const AddToCart = () => {
               <p className="text-sm">TOTAL PRICE</p>
               <p className="text-sm text-right">$4.00</p>
             </div>
-            <button className="btn bg-black text-white w-full py-2">
+            <button className="btn bg-[#069E2D] mt-2 hover:bg-[#04773B]  text-white w-full py-2">
               CHECKOUT
             </button>
           </div>
