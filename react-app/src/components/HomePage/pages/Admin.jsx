@@ -255,59 +255,6 @@ const Admin = () => {
   const [showConfirmRolePopup, setShowConfirmRolePopup] = useState(false);
   const [farmerToReject, setFarmerToReject] = useState(null);
 
-  // const handleRejectUser = async (farmer) => {
-  //   try {
-  //     if (!farmer || !farmer.email) {
-  //       console.error("Invalid farmer object:", farmer);
-  //       return;
-  //     }
-
-  //     const usersRef = ref(database, `users`);
-  //     const snapshot = await get(usersRef);
-  //     const users = snapshot.val();
-  //     let userUID = null;
-
-  //     if (users) {
-  //       for (const uid in users) {
-  //         if (users[uid].email === farmer.email) {
-  //           userUID = uid;
-  //           break;
-  //         }
-  //       }
-  //     }
-
-  //     if (userUID) {
-  //       // Update user role and storeName to null
-  //       await update(ref(database, `users/${userUID}`), {
-  //         role: null,
-  //         storeName: null,
-  //       });
-
-  //       // Delete the productName from ProductDetails node
-  //       const productDetailsRef = ref(database, `ProductDetails/${user.uid}`);
-  //       const productDetailsSnapshot = await get(productDetailsRef);
-  //       const productDetails = productDetailsSnapshot.val();
-
-  //       if (productDetails) {
-  //         const productName = Object.keys(productDetails);
-  //         for (const productNames of productName) {
-  //           await remove(
-  //             ref(database, `ProductDetails/${user.uid}/${productNames}`),
-  //             null
-  //           );
-  //         }
-  //       }
-
-  //       // Remove the farmer from the local state
-  //       const updatedFarmers = farmers.filter((f) => f !== farmer);
-  //       setFarmers(updatedFarmers);
-  //     } else {
-  //       console.error("User not found with email:", farmer.email);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error rejecting user:", error);
-  //   }
-  // };
   const handleRejectUser = async (farmer) => {
     try {
       if (!farmer || !farmer.email) {
