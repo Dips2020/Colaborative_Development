@@ -155,21 +155,39 @@ const Profile = () => {
 
   return (
     <div className="h-[500px] w-full bg-red-200 mt-[100px] rounded-lg mb-2 flex">
-      <div className="w-[30%] h-full flex flex-col rounded-l-lg bg-gradient-to-r from-[#536976] to-[#BBD2C5]">
-        Profile
+      {/* //! left side profile section */}
+      <div className="w-[30%] h-full flex flex-col rounded-l-lg bg-gradient-to-r from-[#536976] to-[#BBD2C5] justify-start items-center gap-6 p-2">
+        {/* Start from this div */}
+        <div className="w-[280px] h-[280px] rounded-full border-4 border-yellow-400 flex justify-center items-center">
+          <img
+            className="w-[270px] h-[270px] object-cover rounded-full"
+            src="https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg"
+            alt="profile"
+          />
+        </div>
+        <div className="flex flex-col justify-center items-start font-bold">
+          <h1 className="text-[40px]">{fetchUserName}</h1>
+          <h2 className="text-[20px]">{fetchUserRole}</h2>
+          <h3 className="text-[20px]">{fetchUserStoreName}</h3>
+        </div>
       </div>
+
+      {/* //! Right side section basic information and advance settings */}
+      {/* // Basic Information ============================================== */}
       <div className="w-[70%] h-full flex flex-col bg-blue-100 rounded-r-lg bg-gradient-to-r from-[#536976] to-[#BBD2C5]">
-        <div>
-          <h1>{fetchUserName}</h1>
-          <h1>{fetchUserEmail}</h1>
-          <h1>{fetchUserRole}</h1>
-          <h1>{fetchUserStoreName}</h1>
+        <div className="flex flex-col justify-center items-start font-bold ml-10">
+          <h1 className="text-[60px] tracking-[4px]">{fetchUserName}</h1>
+          <h1 className="text-[30px] font-semibold">{fetchUserEmail}</h1>
+          <h2 className="text-[30px] font-semibold">{fetchUserRole}</h2>
+          <h3 className="text-[30px] font-semibold">{fetchUserStoreName}</h3>
         </div>
         {/* Advance Setting =============================================== */}
-        <h1 className="mt-10">Advance Settings</h1>
+        <h1 className="mt-10 ml-10 text-[20px] w-[59%] tracking-[4px] font-semibold border-b-2 border-white mb-4">
+          Advance Settings
+        </h1>
         {/* Change Role */}
-        <div className="bg-red-200 h-auto flex gap-4 items-center">
-          <h1 className="text-[18px] font-bold">Change Role :</h1>
+        <div className="h-auto flex gap-4 items-center ml-10 justify-between w-[500px]">
+          <h1 className="text-[26px] font-bold">Change Role :</h1>
           <div className="relative h-auto">
             <button
               ref={btnRef}
@@ -213,6 +231,8 @@ const Profile = () => {
               </div>
             )}
           </div>
+
+          {/* //! ========================================================================================================== */}
           {/* Role already selected pop up */}
           {showRoleChangePopup && (
             <div className="fixed top-0 left-0 w-screen h-screen bg-gray-800 bg-opacity-50 flex justify-center items-center z-40">
@@ -339,8 +359,8 @@ const Profile = () => {
 
         {/* Change Store Name */}
         {fetchUserRole === "Farmer" && (
-          <div className="bg-blue-200 h-auto flex gap-4 items-center mt-2">
-            <h1 className="text-[18px] font-bold">Change Store Name :</h1>
+          <div className="h-auto flex gap-4 items-center mt-2 ml-10 w-[500px] justify-between">
+            <h1 className="text-[26px] font-bold">Change Store Name :</h1>
             <button
               onClick={() => setShowStoreNamePopup(true)}
               className="bg-[#069E2D] hover:bg-[#04773B] text-[18px] text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-[200px] h-[50px] cursor-pointer flex justify-center items-center gap-4"
@@ -349,6 +369,9 @@ const Profile = () => {
             </button>
           </div>
         )}
+
+        {/* //! ========================================================================================================== */}
+        {/* //! ========================================================================================================== */}
       </div>
     </div>
   );
