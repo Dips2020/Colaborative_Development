@@ -96,6 +96,29 @@ const AddToCart = () => {
     );
   };
 
+  // function to checkout button to display success message
+  const [successPopUp, setSuccessPopUp] = useState(false);
+  const handleCheckout = () => {
+    try {
+      // Remove all items from the user's cart
+      const cartRef = ref(database, `AddToCart/${user.uid}`);
+      remove(cartRef);
+
+      // Clear the cart items state
+      setCartItems([]);
+
+      // Show success pop-up
+      setSuccessPopUp(true);
+
+      // Hide success pop-up after 2 seconds
+      setTimeout(() => {
+        setSuccessPopUp(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
+  };
+
   return (
     <div className="h-auto w-full bg-[#c5c1c1] mt-[100px] rounded-lg mb-2 flex flex-col items-center">
       <div className="flex justify-center items-center w-full h-[50px] bg-[#e0dcdc] rounded-t-lg mb-2">
@@ -173,9 +196,27 @@ const AddToCart = () => {
           )}
         </div>
         <div className="w-[30%] bg-[#aaa9a9] h-[480px] flex justify-center items-center rounded-lg">
-          <h1 className="flex justify-center items-center gap-2 font-bold text-[20px]">
-            Total Items: <span className="text-[25px]">{cartItems.length}</span>
-          </h1>
+          <div className="w-full h-full flex flex-col justify-center items-center gap-10">
+            <h1 className="flex justify-center items-center gap-2 font-bold text-[20px]">
+              Total Items:{" "}
+              <span className="text-[25px]">{cartItems.length}</span>
+            </h1>
+            <button
+              onClick={handleCheckout}
+              className="w-[200px] rounded-md h-[40px] border-2 border-gray-800 hover:border-green-700 hover:bg-green-700 transition-all duration-300 font-semibold hover:text-white"
+            >
+              Checkout
+            </button>
+          </div>
+          {successPopUp && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white p-8 rounded-lg">
+                <p className="text-lg text-green-600 font-semibold">
+                  Payment Successful!!!
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       {deleteProductId && (
