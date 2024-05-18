@@ -117,6 +117,7 @@ const Profile = () => {
   };
 
   // Pop up for customer
+  //when they switch for customer mode
   const [showConfirmationPopupCustomer, setShowConfirmationPopupCustomer] =
     useState("");
   const handleCustomer = () => {
